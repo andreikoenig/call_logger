@@ -19,6 +19,26 @@ class JobsController < ApplicationController
 	end
 	def show
 		@job = Job.find(params[:id])
+		@call = @job.call_entries.new
+	end
+
+	def edit
+		@job = Job.find(params[:id])
+	end
+
+	def update
+		@job = Job.find(params[:id])
+		if @job.update(job_params)
+			redirect_to job_path
+		else
+			redirect_to edit_job_path
+		end
+	end
+
+	def destroy
+		job = Job.find(params[:id])
+		job.destroy
+		redirect_to jobs_path
 	end
 
 	private

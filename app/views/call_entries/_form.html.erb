@@ -1,0 +1,11 @@
+<%= form_for [@job, @call_entry] do |f| %>
+  <p><%= f.label :start %>
+  <%= f.datetime_select :start %></p>
+  <p><%= f.label :finish %>
+  <%= f.datetime_select :finish %></p>
+  <p><%= f.label :call_type %>
+  <%= f.select :call_type, ["medical", "customer service", "legal", "other"] %></p>
+  <p><%= f.label :language %>
+  <%= f.select :language, ["russian", "ukranian"] %></p>
+  <p><%= f.submit :submit %></p>
+<% end %>
