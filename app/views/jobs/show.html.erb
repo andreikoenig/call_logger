@@ -1,8 +1,10 @@
 <h2><%= @job.name %></h2>
-<%= link_to "Edit", edit_job_path(@job) %>
+<button><%= link_to "Edit", edit_job_path(@job) %></button>
 <br />
 <br />
 <h4> Current Pay Rate: <%= @job.pay_rate %></h4>
+<br />
+<button><%= link_to "Payments", job_payments_path(@job) %></button>
 <br />
 <h5> Description:</h5>
 <p><%= @job.description %></p>
@@ -10,7 +12,7 @@
 <hr>
 
 <h4>Logged calls for <%= @job.name %></h4>
-<%= link_to "Log a New Call", new_job_call_entry_path(@job) %>
+<button><%= link_to "Log a New Call", new_job_call_entry_path(@job) %></button>
 
 
 

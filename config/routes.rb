@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   #   resources :products
   resources :jobs do
     resources :call_entries
+    resources :payments
   end
 
   # Example resource route with options:

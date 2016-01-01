@@ -1,5 +1,5 @@
 <h3>Edit information for <%= @job.name %></h3>
 <%= render 'form' %>
 <p><%= link_to "Delete this job", job_path(@job), :data => {:confirm =>
-	            "Are you sure? All the data associated with this job will be deleted!",
+	            "Are you sure? All the data (calls and payments) associated with this job will be deleted! This action cannot be undone!",
 	             :method => :delete} %></p>

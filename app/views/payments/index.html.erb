@@ -1,0 +1,22 @@
+<h3><%= @job.name %></h3>
+<button><%= link_to "Record a Payment", new_job_payment_path %></button>
+
+<% if @job.payments.all.any? %>
+<table border="1px solid black">
+  	  <tr>
+  		<th>Received on</th>
+  		<th>Amount</th>
+  		<th>Pay Period</th>
+  	  </tr>
+  <% @job.payments.all.each do |payment| %>
+      <tr>
+    	<td><%= payment.received %></td>
+    	<td><%= payment.amount %></td>
+    	<td><%= payment.pay_period %></td>
+      </tr>
+  <% end %>
+ </table>
+
+<% else %>
+<h4>There have not been any recorded payments for <%= @job.name %></h4>
+<% end %>
