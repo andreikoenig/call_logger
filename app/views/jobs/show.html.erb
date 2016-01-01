@@ -14,7 +14,7 @@
 
 
 
-<table border="solid 1px">
+<table border="1px solid black">
 	<tr>
 		<th>Start Time</th>
 		<th>Finish Time</th>
@@ -22,6 +22,7 @@
 		<th>Language</th>
 		<th>Minutes</th>
 		<th>Total $ amount</th>
+		<th>Call Comments</th>
 	</tr>
 	<% @job.call_entries.all.each do |call| %>
 	<% min = call.call_length %>
@@ -32,6 +33,7 @@
 		<td><%= call.language %></td>
 		<td><%= min %></td>
 		<td>$<%= call.earned(min) %></td>
+		<td><%= call.comment %></td>
 	</tr>
 	<% end %>
 
