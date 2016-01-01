@@ -11,7 +11,7 @@
   <% @job.payments.all.each do |payment| %>
       <tr>
     	<td><%= payment.received %></td>
-    	<td><%= payment.amount %></td>
+    	<td>$ <%= payment.amount %></td>
     	<td><%= payment.pay_period %></td>
       </tr>
   <% end %>
