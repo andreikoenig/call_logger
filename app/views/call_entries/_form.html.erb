@@ -7,5 +7,7 @@
   <%= f.select :call_type, ["medical", "customer service", "legal", "other"] %></p>
   <p><%= f.label :language %>
   <%= f.select :language, ["russian", "ukranian"] %></p>
+  <p><%= f.label :comment, "Call comments (optional)" %></p>
+  <p><%= f.text_area :comment %></p>
   <p><%= f.submit :submit %></p>
 <% end %>

@@ -21,6 +21,6 @@ class CallEntriesController < ApplicationController
 
   private
   def call_params
-  	params.require(:call_entry).permit(:start, :finish, :call_type, :language)
+  	params.require(:call_entry).permit(:start, :finish, :call_type, :language, :comment)
   end
-end
+end 
