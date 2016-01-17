@@ -1,0 +1,28 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+body {
+	background: #98dafc;
+}
+
+.navbar  {
+	background: #daad86;
+}
+
+.navbar-default .navbar-nav > li > a {
+	color: white;
+	font-size: 1.5em;
+	margin: 5px 0 -5px 0;
+	> img.menu-logo {
+		margin-top: -15px;
+		padding: 0;
+	}
+}
+
+img.center-block {
+	margin-top: 60px;
+}
+
+div.row {
+	margin-top: 40px;
+}
