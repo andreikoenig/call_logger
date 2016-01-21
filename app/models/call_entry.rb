@@ -7,6 +7,6 @@ def call_length
 end
 
 def earned(min)
-  min * job.pay_rate
+  (min * job.pay_rate).round(2)
 end
 end
