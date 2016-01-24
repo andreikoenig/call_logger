@@ -14,7 +14,7 @@ class JobsController < ApplicationController
 
 	def create
 		job = Job.new(job_params)
-		authorize @job
+		authorize job
 		if job.save
 			redirect_to jobs_path
 		else
