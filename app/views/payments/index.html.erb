@@ -3,7 +3,7 @@
 <p><button><%= link_to "Back to #{@job.name}'s page", job_path(@job) %></button></p>
 
 <% if @payments.any? %>
-<table border="1px solid black">
+<table class="records" border="1px solid black">
   	  <tr>
   		<th>Received on</th>
   		<th>Amount</th>

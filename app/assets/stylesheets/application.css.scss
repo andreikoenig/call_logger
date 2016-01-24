@@ -33,6 +33,19 @@ div.container-body {
   } 
 }
 
+table.records {
+  text-align: center;
+  background-color: #f2f2f2;
+     th {
+      background-color: #cccccc;
+      text-align: center;
+      padding: 0 5px 0 5px;
+     }
+     td {
+     padding: 0 5px 0 5px;
+     }
+}
+
 
 div.row {
 	margin-top: 40px;
