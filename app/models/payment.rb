@@ -3,6 +3,6 @@ class Payment < ActiveRecord::Base
 	belongs_to :job
 
 	def pay_period
-		pay_period_start.to_s + " through " + pay_period_end.to_s
+		pay_period_start.strftime("%m-%d-%Y").to_s + " through " + pay_period_end.strftime("%m-%d-%Y").to_s
 	end
 end

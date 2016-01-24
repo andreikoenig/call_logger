@@ -28,8 +28,8 @@
 	<% @job.call_entries.all.each do |call| %>
 	<% min = call.call_length %>
 	<tr>
-		<td><%= call.start %></td>
-		<td><%= call.finish %></td>
+		<td><%= call.start.strftime("%m-%d-%Y %I:%M %p") %></td>
+		<td><%= call.finish.strftime("%m-%d-%Y %I:%M %p") %></td>
 		<td><%= call.call_type %></td>
 		<td><%= call.language %></td>
 		<td><%= min %></td>
