@@ -1,3 +1,4 @@
+<h4 class="todays-date"> Today's date is: <%= @current_time.strftime("%B %-d, %Y.") %></h4>
 <h2><%= @job.name %></h2>
 <button><%= link_to "Edit", edit_job_path(@job) %></button>
 <br />
@@ -11,7 +12,7 @@
 
 <hr>
 
-<h4>Logged calls for <%= @job.name %></h4>
+<h4>Logged calls for today:</h4>
 <button><%= link_to "Log a New Call", new_job_call_entry_path(@job) %></button>
 
 
@@ -25,7 +26,7 @@
 		<th>Total $ amount</th>
 		<th>Call Comments</th>
 	</tr>
-	<% @job.call_entries.all.each do |call| %>
+	<% @todays_calls.all.each do |call| %>
 	<% min = call.call_length %>
 	<tr>
 		<td><%= call.start.strftime("%m-%d-%Y %I:%M %p") %></td>
