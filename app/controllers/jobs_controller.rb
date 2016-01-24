@@ -3,15 +3,18 @@ class JobsController < ApplicationController
 
 	def index
 		@jobs = current_user.jobs.all
+		authorize @jobs
 	end
 
 	def new
 		@user = current_user
 		@job = Job.new
+		authorize @job
 	end
 
 	def create
 		job = Job.new(job_params)
+		authorize @job
 		if job.save
 			redirect_to jobs_path
 		else
@@ -21,15 +24,18 @@ class JobsController < ApplicationController
 	def show
 		@job = Job.find(params[:id])
 		@call = @job.call_entries.new
+		authorize @job
 	end
 
 	def edit
 		@user = current_user
 		@job = Job.find(params[:id])
+		authorize @job
 	end
 
 	def update
 		@job = Job.find(params[:id])
+		authorize @job
 		if @job.update(job_params)
 			redirect_to job_path
 		else
@@ -39,6 +45,7 @@ class JobsController < ApplicationController
 
 	def destroy
 		job = Job.find(params[:id])
+		authorize job
 		job.destroy
 		redirect_to jobs_path
 	end
