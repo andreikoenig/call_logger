@@ -15,6 +15,9 @@
 <h4>Logged calls for today:</h4>
 <button><%= link_to "Log a New Call", new_job_call_entry_path(@job) %></button>
 
+<%= link_to "Show calls for today", job_path %>
+<%= link_to "Show calls for the week", job_path(start: @current_time.beginning_of_week, finish: @current_time.end_of_week) %>
+<%= link_to "Show calls for the month", job_path(start: @current_time.beginning_of_month, finish: @current_time.end_of_month) %>
 
 <table class="records" border="1px solid black">
 	<tr>
@@ -26,7 +29,7 @@
 		<th>Total $ amount</th>
 		<th>Call Comments</th>
 	</tr>
-	<% @todays_calls.all.each do |call| %>
+	<% @calls.each do |call| %>
 	<% min = call.call_length %>
 	<tr>
 		<td><%= call.start.strftime("%m-%d-%Y %I:%M %p") %></td>

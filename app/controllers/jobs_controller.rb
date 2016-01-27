@@ -2,7 +2,7 @@ class JobsController < ApplicationController
 	before_action :authenticate_user!
 
 	def index
-		@jobs = current_user.jobs.all
+		@jobs = current_user.jobs
 		authorize @jobs
 	end
 
@@ -26,7 +26,9 @@ class JobsController < ApplicationController
 		@call = @job.call_entries.new
 		tz = current_user.time_zone
 		@current_time = ActiveSupport::TimeZone[tz].parse(Time.now.to_s)
-		@todays_calls = @job.call_entries.where(start: (@current_time.beginning_of_day..@current_time.end_of_day))
+		start = params[:start] || @current_time.beginning_of_day
+		finish = params[:finish] || @current_time.end_of_day
+		@calls = @job.call_entries.where(start: (start..finish))
 		authorize @job
 	end
 
