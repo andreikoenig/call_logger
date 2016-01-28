@@ -23,11 +23,18 @@ class JobsController < ApplicationController
 	end
 	def show
 		@job = Job.find(params[:id])
-		@call = @job.call_entries.new
 		tz = current_user.time_zone
 		@current_time = ActiveSupport::TimeZone[tz].parse(Time.now.to_s)
 		start = params[:start] || @current_time.beginning_of_day
 		finish = params[:finish] || @current_time.end_of_day
+		# binding.pry
+		if params[:start] != nil
+			start_range = Date.parse(params[:start])
+			end_range = Date.parse(params[:finish])
+			@range = "period from #{start_range.strftime("%m-%d-%Y")} to #{end_range.strftime("%m-%d-%Y")}"
+		else
+			@range = "today"
+		end
 		@calls = @job.call_entries.where(start: (start..finish))
 		authorize @job
 	end
@@ -56,7 +63,9 @@ class JobsController < ApplicationController
 	end
 
 	private
+
 	def job_params
 		params.require(:job).permit(:name, :pay_rate, :description, :user_id)
 	end
+
 end

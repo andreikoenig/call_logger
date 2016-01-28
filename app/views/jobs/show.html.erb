@@ -12,14 +12,18 @@
 
 <hr>
 
-<h4>Logged calls for today:</h4>
-<button><%= link_to "Log a New Call", new_job_call_entry_path(@job) %></button>
+<h4>Logged calls for <%= @range %>:</h4>
+<p><button><%= link_to "Log a New Call", new_job_call_entry_path(@job) %></button></p>
 
-<%= link_to "Show calls for today", job_path %>
-<%= link_to "Show calls for the week", job_path(start: @current_time.beginning_of_week, finish: @current_time.end_of_week) %>
-<%= link_to "Show calls for the month", job_path(start: @current_time.beginning_of_month, finish: @current_time.end_of_month) %>
+<p><button><%= link_to "Show calls for today", job_path %></button></p>
 
-<table class="records" border="1px solid black">
+<form action="" method="get">
+	<input type="date" name="start" required />
+	<input type="date" name="finish" required />
+	<button name="submit" type="submit">Show calls for custom dates</button>
+</form>
+
+<table class="records">
 	<tr>
 		<th>Start Time</th>
 		<th>Finish Time</th>
