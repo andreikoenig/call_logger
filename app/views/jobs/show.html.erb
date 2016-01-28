@@ -33,8 +33,13 @@
 		<th>Total $ amount</th>
 		<th>Call Comments</th>
 	</tr>
+	<% total_min = 0 %>
+	<% total_earned = 0 %>
+
 	<% @calls.each do |call| %>
 	<% min = call.call_length %>
+	<% total_min += min %>
+	<% total_earned += call.earned(min) %>
 	<tr>
 		<td><%= call.start.strftime("%m-%d-%Y %I:%M %p") %></td>
 		<td><%= call.finish.strftime("%m-%d-%Y %I:%M %p") %></td>
@@ -45,5 +50,7 @@
 		<td><%= call.comment %></td>
 	</tr>
 	<% end %>
-
 </table>
+
+<h5><strong>Total Minutes:</strong> <%= total_min %>.</h5>
+<h5><strong>Total $ Amount:</strong> <%= total_earned %>.</h5>
