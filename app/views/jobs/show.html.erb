@@ -32,6 +32,8 @@
 		<th>Minutes</th>
 		<th>Total $ amount</th>
 		<th>Call Comments</th>
+		<td class="hidden-cell"></td>
+		<td class="hidden-cell"></td>
 	</tr>
 	<% total_min = 0 %>
 	<% total_earned = 0 %>
@@ -48,6 +50,8 @@
 		<td><%= min %></td>
 		<td>$<%= call.earned(min) %></td>
 		<td><%= call.comment %></td>
+		<td class="hidden-cell"><%= link_to "Edit", edit_job_call_entry_path(@job, call.id) %></td>
+		<td class="hidden-cell"><%= link_to "Delete", job_call_entry_path(@job, call.id), :data => {:confirm => "Are you sure? All the data associated with this call record will be deleted! This action cannot be undone!", :method => :delete} %></td>
 	</tr>
 	<% end %>
 </table>

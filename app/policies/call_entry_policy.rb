@@ -8,4 +8,16 @@ class CallEntryPolicy < ApplicationPolicy
     user.present? && user == record.job.user
   end
 
+  def edit?
+    update?
+  end
+
+  def update?
+    user.present? && user == record.job.user
+  end
+
+  def destroy?
+    user.present? && user == record.job.user
+  end
+
 end

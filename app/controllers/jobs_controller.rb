@@ -51,7 +51,7 @@ class JobsController < ApplicationController
 		if @job.update(job_params)
 			redirect_to job_path
 		else
-			redirect_to edit_job_path
+			redirect_to edit_job_path(@job)
 		end
 	end
 

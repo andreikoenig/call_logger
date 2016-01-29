@@ -17,6 +17,31 @@ class CallEntriesController < ApplicationController
 		end
 	end
 
+  def edit
+    @call_entry = CallEntry.find(params[:id])
+    @job = @call_entry.job
+    authorize @call_entry
+  end
+
+  def update
+    @call_entry = CallEntry.find(params[:id])
+    @job = @call_entry.job
+    authorize @call_entry
+    if @call_entry.update(call_params)
+      redirect_to job_path(@job)
+    else
+      redirect_to edit_job_call_entry_path(@job, @call_entry)
+    end
+  end
+
+  def destroy
+    call = CallEntry.find(params[:id])
+    @job = call.job
+    authorize call
+    call.destroy
+    redirect_to job_path(@job)
+  end
+
 
   private
   def call_params

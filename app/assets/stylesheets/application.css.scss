@@ -33,14 +33,34 @@ div.container-body {
   } 
 }
 
-table.records, th, td {
+th {
   border: 1px solid #b3b3b3;
+}
+
+td {
+  border: 1px solid #b3b3b3;
+}
+
+td.hidden-cell {
+  border: 1px solid #98dafc;
+  background: #98dafc;
+  a {
+    visibility: hidden;
+  }
+
 }
 
 table.records {
   text-align: center;
   background-color: #f2f2f2;
   margin-top: 20px;
+     &:hover{
+       td.hidden-cell a {
+       visibility: visible;
+      }
+
+
+     }
      th {
       background-color: #cccccc;
       text-align: center;
@@ -48,7 +68,7 @@ table.records {
      }
      td {
        padding: 0 5px 0 5px;
-     }
+     }     
 }
  h4.todays-date {
   font-size: 1.2em;
@@ -67,4 +87,9 @@ div.row {
 img.secret {
   float: right;
 }
+
+tr:hover {
+  background-color: #ccf3ff;
+}
+
 
