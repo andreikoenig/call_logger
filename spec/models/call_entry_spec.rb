@@ -19,7 +19,7 @@ describe CallEntry do
   describe "#earned" do
     context "given the length and earned per minute rate" do
       it "calculates earned amount for the call" do
-        call = FactoryGirl.build(:call_entry)
+        call = build(:call_entry)
         expect(call.earned(call.call_length)).to(eq(7.50))
       end
     end
