@@ -4,5 +4,6 @@ FactoryGirl.define do
     finish "2016-01-15 13:25:00"
     call_type "medical"
     language "russian"
+    association :job, factory: :job, strategy: :build
   end
 end
