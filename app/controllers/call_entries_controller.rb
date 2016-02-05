@@ -9,6 +9,8 @@ class CallEntriesController < ApplicationController
 	def create
 		@job = Job.find(params[:job_id])
 		call = @job.call_entries.new(call_params)
+    call.length = call.call_length
+    call.earned = call.earned_this_call(call.length)
     authorize call
 		if call.save
 			redirect_to job_path(@job)
@@ -26,8 +28,13 @@ class CallEntriesController < ApplicationController
   def update
     @call_entry = CallEntry.find(params[:id])
     @job = @call_entry.job
+    @call_entry.attributes = call_params
+    min = @call_entry.call_length
+    earned = @call_entry.earned_this_call(min)
+    params_hash = {"length" => "#{min}", "earned" => "#{earned}"}
+    params_hash.merge!(call_params)
     authorize @call_entry
-    if @call_entry.update(call_params)
+    if @call_entry.update(params_hash)
       redirect_to job_path(@job)
     else
       redirect_to edit_job_call_entry_path(@job, @call_entry)
@@ -45,6 +52,6 @@ class CallEntriesController < ApplicationController
 
   private
   def call_params
-  	params.require(:call_entry).permit(:start, :finish, :call_type, :language, :comment)
+  	params.require(:call_entry).permit(:start, :finish, :call_type, :language, :comment, :job_id)
   end
 end 
