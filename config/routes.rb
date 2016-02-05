@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
   devise_for :users, :controllers => {registrations: 'registrations'}
-  root to: 'pages#index'
+  root to: 'pages#show', page: "welcome"
+
+  get "/pages/:page" => "pages#show"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

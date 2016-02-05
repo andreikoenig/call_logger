@@ -1,6 +1,5 @@
 class PagePolicy < ApplicationPolicy
-
-  def index?
+  def show?
     true
   end
 end
