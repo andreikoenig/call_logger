@@ -16,11 +16,11 @@ describe CallEntry do
     end
   end
 
-  describe "#earned" do
+  describe "#earned_this_call" do
     context "given the length and earned per minute rate" do
       it "calculates earned amount for the call" do
         call = build(:call_entry)
-        expect(call.earned(call.call_length)).to(eq(7.50))
+        expect(call.earned_this_call(call.call_length)).to(eq(7.50))
       end
     end
   end
