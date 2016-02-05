@@ -76,6 +76,8 @@ call_entries.each do |start, finish, call_type, language, comment, job_id|
 				comment: comment,
 				job_id: job_id
 		)
+	call_entry.length = call_entry.call_length
+	call_entry.earned = call_entry.earned_this_call(call_entry.length)
 	call_entry.save!
 end
 
