@@ -43,14 +43,14 @@
 		<% @calls.each do |call| %>
 		<% min = call.call_length %>
 		<% total_min += min %>
-		<% total_earned += call.earned(min) %>
+		<% total_earned += call.earned_this_call(min) %>
 		<tr>
 			<td><%= call.start.strftime("%m-%d-%Y %I:%M %p") %></td>
 			<td><%= call.finish.strftime("%m-%d-%Y %I:%M %p") %></td>
 			<td><%= call.call_type %></td>
 			<td><%= call.language %></td>
 			<td><%= min %></td>
-			<td>$<%= call.earned(min) %></td>
+			<td>$<%= call.earned_this_call(min) %></td>
 			<td><%= call.comment %></td>
 			<td class="hidden-cell"><%= link_to "Edit", edit_job_call_entry_path(@job, call.id) %></td>
 			<td class="hidden-cell"><%= link_to "Delete", job_call_entry_path(@job, call.id), :data => {:confirm => "Are you sure? All the data associated with this call record will be deleted! This action cannot be undone!", :method => :delete} %></td>

@@ -20,7 +20,7 @@ jobs = [
 
 call_entries = [
 		["2016-01-18 19:08:00", "2016-01-18 19:50:00", "medical", "russian", "call got disconnected", "1"],
-		["2016-01-16 15:10:00", "2016-01-16 15:54:00", "medical", "ukranian", "", nil, "1"],
+		["2016-01-16 15:10:00", "2016-01-16 15:54:00", "medical", "ukranian", "", "1"],
 		["2016-01-18 10:25:00", "2016-01-18 11:47:00", "legal", "ukranian", "client was hard to understand", "1"],
 		["2016-01-07 16:22:00", "2016-01-07 17:50:00", "medical", "russian", nil, "2"],
 		["2016-01-18 18:15:00", "2016-01-18 18:22:00", "customer service", "russian", "short call...", "2"],
