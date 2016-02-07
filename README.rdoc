@@ -3,3 +3,5 @@
 This app lives on Heroku.
 
 Go to https://call-logger.herokuapp.com/ to see it on the web.
+
+Last deploy to heroku Feb 6, 2016.
