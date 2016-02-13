@@ -12,6 +12,18 @@ class PaymentPolicy < ApplicationPolicy
     user.present?
   end
 
+  def edit?
+    update?
+  end
+
+  def update?
+    user.present? && user == record.job.user
+  end
+
+  def destroy?
+    user.present? && user == record.job.user
+  end
+
   private
   def no_records?
     if record.length == 0

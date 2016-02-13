@@ -8,12 +8,16 @@
   		<th>Received on</th>
   		<th>Amount</th>
   		<th>Pay Period</th>
+      <td class="hidden-cell"></td>
+      <td class="hidden-cell"></td>
   	  </tr>
   <% @payments.each do |payment| %>
       <tr>
     	<td><%= payment.received.strftime("%m-%d-%Y") %></td>
     	<td>$ <%= payment.amount %></td>
     	<td><%= payment.pay_period %></td>
+      <td class="hidden-cell"><%= link_to "Edit", edit_job_payment_path(@job, payment.id) %></td>
+      <td class="hidden-cell"><%= link_to "Delete", job_payment_path(@job, payment.id), :data => {:confirm => "Are you sure? All the data associated with this payment record will be deleted! This action cannot be undone!", :method => :delete} %></td>
       </tr>
   <% end %>
  </table>

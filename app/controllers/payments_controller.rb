@@ -22,6 +22,32 @@ class PaymentsController < ApplicationController
 		end
 	end
 
+	def edit
+		@payment = Payment.find(params[:id])
+		@job = @payment.job
+		authorize @payment
+	end
+
+	def update
+		payment = Payment.find(params[:id])
+		@job = payment.job
+		authorize payment
+		if payment.update(payment_params)
+		 redirect_to job_payments_path(@job)
+	 else
+	 		redirect_to edit_job_payment_path(@job, @payment)
+	 end		
+	end
+
+
+	def destroy
+		payment = Payment.find(params[:id])
+		@job = payment.job
+		authorize payment
+		payment.destroy
+		redirect_to job_payments_path(@job)
+	end
+
 
 	private
 	def payment_params
