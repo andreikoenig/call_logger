@@ -1,4 +1,4 @@
-class CreateCallEntries < ActiveRecord::Migration
+class CreateCallEntries < ActiveRecord::Migration[7.0]
   def change
     create_table :call_entries do |t|
     	t.datetime :start

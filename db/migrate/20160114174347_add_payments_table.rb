@@ -1,4 +1,4 @@
-class AddPaymentsTable < ActiveRecord::Migration
+class AddPaymentsTable < ActiveRecord::Migration[7.0]
   def change
   	create_table :payments do |t|
   		t.date :received
